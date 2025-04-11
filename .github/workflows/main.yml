@@ -24,6 +24,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Set PYTHONPATH for tests
+        run: |
+          export PYTHONPATH=$PYTHONPATH:$(pwd)  # Add the current directory to PYTHONPATH
+
       - name: Run Flask unit tests
         run: |
-          pytest  # This is the correct command to run tests
+          pytest  # Run the tests
